@@ -44,7 +44,7 @@ services:
 
     microservice-product-search:
         build:
-            context: microservice/product-search/docker/php-fpm
+            context: microservices/product-search/docker
             args:
                 www_data_uid: 501
                 www_data_gid: 20
