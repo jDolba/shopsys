@@ -2,6 +2,7 @@
 
 namespace Shopsys\FrameworkBundle\Model\Product;
 
+use Shopsys\FrameworkBundle\Component\Client\Microservice\Client;
 use Shopsys\FrameworkBundle\Component\Domain\Domain;
 use Shopsys\FrameworkBundle\Component\Paginator\PaginationResult;
 use Shopsys\FrameworkBundle\Model\Category\CategoryRepository;
@@ -50,6 +51,11 @@ class ProductOnCurrentDomainFacade
      */
     protected $brandRepository;
 
+    /**
+     * @var \Shopsys\FrameworkBundle\Component\Client\Microservice\Client
+     */
+    protected $client;
+
     public function __construct(
         ProductRepository $productRepository,
         Domain $domain,
@@ -57,7 +63,8 @@ class ProductOnCurrentDomainFacade
         CategoryRepository $categoryRepository,
         ProductFilterCountRepository $productFilterCountRepository,
         ProductAccessoryRepository $productAccessoryRepository,
-        BrandRepository $brandRepository
+        BrandRepository $brandRepository,
+        Client $client
     ) {
         $this->productRepository = $productRepository;
         $this->domain = $domain;
@@ -66,6 +73,7 @@ class ProductOnCurrentDomainFacade
         $this->productFilterCountRepository = $productFilterCountRepository;
         $this->productAccessoryRepository = $productAccessoryRepository;
         $this->brandRepository = $brandRepository;
+        $this->client = $client;
     }
 
     /**

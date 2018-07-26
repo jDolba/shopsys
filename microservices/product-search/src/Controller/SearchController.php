@@ -14,11 +14,12 @@ class SearchController extends Controller
         $limit = $request->query->get('limit', null);
         $offset = $request->query->get('offset', 0);
 
+        $productsIds = [
+            1, 2, 3, 4, 5,
+        ];
+
         return new JsonResponse([
-            'query' => $query,
-            'domainId' => $domainId,
-            'limit' => $limit,
-            'offset' => $offset,
+            'productsIds' => $productsIds,
         ]);
     }
 }

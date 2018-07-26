@@ -13,7 +13,7 @@ if ! [ -p $PIPE ]; then
 fi
 tail -f $PIPE &
 
-composer install
+composer install --no-interaction
 php bin/console server:run 0.0.0.0:8000
 
 # first arg is `-f` or `--some-option`
